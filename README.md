@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Calculadora con JavaScript + React
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requerimiento
 
-## Available Scripts
+Codificar una calculadora básica.
 
-In the project directory, you can run:
+---
+## Elementos de evaluación
 
-### `npm start`
+- Debe tener un elemento, en el que se pueda hacer clic, que represente al signo `=` con un `id=equal`
+- Debe tener diez elementos, en los que se pueda hacer clic, que representen a los números del 0 al 9 con los siguientes identificadores únicos:
+  - `id-zero`
+  - `id-one`
+  - `id-two`
+  - `id-three`
+  - `id-four`
+  - `id-five`
+  - `id-six`
+  - `id-seven`
+  - `id-eight`
+  - `id-nine`
+- Debe tener cuatro elementos, en los que se pueda hacer clic, que representen a los operadores matemáticos con los siguientes identificadores únicos:
+  - `id-add`
+  - `id-subtract`
+  - `id-multiply`
+  - `id-divide`
+- Debe tener un elemento, en el que se pueda hacer clic, que represente al punto decimal `.` con un `id=decimal`
+- Debe tener un elemento, en el que se pueda hacer clic, con un `id=clear`
+- Debe tener un elemento para mostrar valores, con un `id-display`
+- En todo momento, si se hace clic en el botón `clear` se eleminaran los valores de entrada y salida, regresar a la calculadora al estado inicial y el elemento `display` debe mostrar `0`
+- Al introducir los números se deben reflejar en el elemento `display`
+- Deberá ser posible ingresar los operadores mátematicos en cualquier momento con números de cualquier longitud; al presionar el signo `=` se deberá mostrar el resultado en el elemento `display`
+- Al introducir números no se debe permir que el número comience con uno o varios `0`
+- Cuando se haga clic en el elemento `.` se deberá agregar el punto decima; no se deberán acepart dos puntos en un mismo número
+- La aplicación debe ser capza de operar cualquier operación matemática con números que contengan decimales.
+- Si se introducen dos o más operadores consecutivamente se deberá reconocer la operación del úlimo operador ingresado, con excepción del signo `-` que se reconocerá como cambio se signo del siguiente número.
+- Si se ingresa un operador inmediatamente después de signo `=` se debe comenzar un nuevo cálculo con el resultado anterior como primer elemento a operar
+- La presición decimal deberá ser al menos de 4 posiciones
+### Determinar si la lógica de operación será inmediata o formulada
+La lógica inmediata es operar cada operación en cuanto se ingresa, la lógica formulada reconoce la precedencia generalmente aceptada.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## Lógica de Diseño
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Se pueden hacer componenetes que correspondan a botones.
 
-### `npm test`
+Estos pueden ser diferenciados para identificar números y operadores.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Considero que la organización de los div se puede hacer con css grid.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para la evaluación de las expresiones voy a utilizar el paquete `mathjs` el cual realiza la evaluación a partir de caracteres de texto.
